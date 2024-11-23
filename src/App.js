@@ -130,7 +130,7 @@ function App() {
     }
 
     setResult({
-      float: res.toString(),
+      float: res.toPrecision(16), // Full precision for floating-point result
       binary: floatToBinary(res),
       hex: floatToHex(res),
       signExponentMantissa: floatToSignExponentMantissa(res),
@@ -156,7 +156,7 @@ function App() {
       const exponent = (intVal >>> 23) & 0xff;
 
       if (exponent === 0) {
-        return 'Legal Float-Denormalized ';
+        return 'Legal Float-Denormalized';
       } else {
         return 'Legal Float';
       }
@@ -182,7 +182,6 @@ function App() {
     setResult(null); // Clear result
     setStatus(''); // Clear status
   };
-  
 
   return (
     <div className="App">
